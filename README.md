@@ -16,4 +16,4 @@
     
 > base.py -> base.json으로부터 SECRET_KEY할당(언어변경, 한국시간으로 변경, 경로 설정(templates, static, media, secrets 등등))
 
-> local.py -> DEBUG, ALLOWED_HOSTS, WSGI_APPLICATION, DATABASES, STATIC_URL 
+> local.py -> DEBUG, ALLOWED_HOSTS, WSGI_APPLICATION, DATABASES, STATIC_URL 를 base.py 안에서 코드 잘라오기
