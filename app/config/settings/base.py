@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # 추가 부분
 # .secrets 경로로 가기위해 root 설정
-ROOT_DIR = os.path.join(BASE_DIR)
+ROOT_DIR = os.path.dirname(BASE_DIR)
 # .secrets 경로 설정
 SECRETS_DIR = os.path.join(ROOT_DIR, '.secrets')
 # .secrets 안에 있는 base.json 를 참조하기위한 설정
@@ -26,12 +26,15 @@ secrets = json.load(open(os.path.join(SECRETS_DIR, 'base.json')))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # django 안에 있는 secrets 키를 .secrets 안에 base.json 으로 옮겨 줌
-SECRET_KEY = secrets['SECRET_KET']
+SECRET_KEY = secrets['SECRET_KEY']
 
+AUTH_USER_MODEL = 'members.User'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'members.apps.MembersConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
